@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 
 import org.hibernate.annotations.IdGeneratorType;
 
-@IdGeneratorType(UlidIdentifierGenerator.class)
+@IdGeneratorType(UlidIdentifierGeneratorImpl.class)
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface GeneratedUlid {
