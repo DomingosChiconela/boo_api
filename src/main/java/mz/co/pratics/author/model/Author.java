@@ -1,7 +1,11 @@
 package mz.co.pratics.author.model;
 
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.Column;
@@ -10,11 +14,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import mz.co.pratics.common.persistence.GeneratedUlid;
+
 @Entity 
 @Table(name ="authors")
 public class Author  extends PanacheEntityBase{
 
     @Id 
+    @GeneratedUlid 
     private  String id;
 
     @Column(name = "first_name")
@@ -33,12 +40,16 @@ public class Author  extends PanacheEntityBase{
 
     private  String    email;
 
-    @Column(name = "created_at")
-    private  LocalDateTime createdAt;
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private Instant createdAt;
 
+    @UpdateTimestamp
     @Column(name = "updated_at")
-    private   LocalDateTime updatedAt;
+    private Instant updatedAt;
 
+    @Column(name = "deleted_at")
+    private Instant deletedAt;
 
  
 
