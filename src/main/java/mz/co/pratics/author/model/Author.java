@@ -17,11 +17,19 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import mz.co.pratics.book.model.Book;
 import mz.co.pratics.common.persistence.GeneratedUlid;
 
 @Entity 
 @Table(name ="authors")
+@Setter 
+@Getter 
+@AllArgsConstructor 
+@NoArgsConstructor 
 public class Author  extends PanacheEntityBase{
 
     @Id 

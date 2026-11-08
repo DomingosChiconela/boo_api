@@ -16,12 +16,17 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import mz.co.pratics.author.model.Author;
 import mz.co.pratics.common.persistence.GeneratedUlid;
 
 @Entity
 @Table(name = "books")
+@Setter
+@Getter
+@AllArgsConstructor 
 public class Book extends PanacheEntityBase {
 
     @Id
